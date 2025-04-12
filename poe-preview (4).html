@@ -1,0 +1,1528 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personal Sustainability Analyzer - Doppler Racing</title>
+    <!-- Import fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'HK Modular';
+            src: url('data:application/font-woff2;charset=utf-8;base64,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') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        :root {
+            --highlight-color: #a8c9ff;
+            --dark-blue: #000033;
+            --medium-blue: #0066cc;
+            --light-gray: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(to right, var(--dark-blue), #000066);
+            color: white;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 30px;
+        }
+        
+        h1, h2, .card-title {
+            font-family: 'HK Modular', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 100px;
+            padding: 40px 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--highlight-color);
+        }
+        
+        .card-title {
+            background-color: var(--highlight-color);
+            border-radius: 100px;
+            padding: 15px 40px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .question-container, .text-question-container {
+            display: none;
+        }
+        
+        .question {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .options {
+            margin-bottom: 30px;
+        }
+        
+        .option {
+            background-color: white;
+            border: 2px solid var(--highlight-color);
+            border-radius: 100px;
+            padding: 15px 30px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: var(--highlight-color);
+            transform: translateY(-3px);
+        }
+        
+        .option.selected {
+            background-color: var(--highlight-color);
+            font-weight: bold;
+        }
+        
+        .text-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--highlight-color);
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background-color: var(--highlight-color);
+            border: none;
+            border-radius: 100px;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            font-family: 'HK Modular', sans-serif;
+        }
+        
+        .btn:hover {
+            background-color: #86b7ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 100px;
+            margin: 30px 0;
+            height: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--highlight-color);
+            width: 0%;
+            transition: width 0.5s ease;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .result-container {
+            display: none;
+        }
+        
+        .score {
+            font-size: 5rem;
+            font-weight: bold;
+            text-align: center;
+            color: var(--medium-blue);
+            margin: 30px 0;
+            font-family: 'HK Modular', sans-serif;
+        }
+        
+        .feedback-category {
+            background-color: var(--light-gray);
+            border-radius: 30px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .feedback-category h3 {
+            color: var(--medium-blue);
+            margin-top: 0;
+            font-family: 'HK Modular', sans-serif;
+        }
+        
+        .recommendation {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .improvement {
+            background-color: #ffe8e8;
+        }
+        
+        .compliment {
+            background-color: #e8ffe8;
+        }
+        
+        .intro-screen {
+            text-align: center;
+        }
+        
+        .loading-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .loading-text {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            font-style: italic;
+        }
+        
+        .doppler-logo {
+            width: 250px;
+            margin: 30px auto;
+            display: block;
+        }
+        
+        /* Chatbot styles */
+        .chatbot-container {
+            margin-top: 40px;
+            display: none;
+        }
+        
+        .chat-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--highlight-color);
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 20px;
+            max-width: 80%;
+            line-height: 1.4;
+            position: relative;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .user-message {
+            background-color: var(--highlight-color);
+            margin-left: auto;
+            border-radius: 20px 20px 5px 20px;
+        }
+        
+        .bot-message {
+            background-color: #e6e6e6;
+            margin-right: auto;
+            border-radius: 20px 20px 20px 5px;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex-grow: 1;
+            padding: 15px 20px;
+            border: 2px solid var(--highlight-color);
+            border-radius: 100px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .chat-input button {
+            padding: 15px 25px;
+            background-color: var(--highlight-color);
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: 'HK Modular', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-input button:hover {
+            background-color: #86b7ff;
+            transform: translateY(-2px);
+        }
+        
+        /* Animation for the loading dots */
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 2s infinite;
+            display: inline-block;
+        }
+        
+        /* Two-column layout for laptop orientation */
+        .laptop-layout {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .laptop-column {
+            flex: 1;
+        }
+        
+        @media (max-width: 1200px) {
+            .laptop-layout {
+                flex-direction: column;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 25px;
+                border-radius: 50px;
+            }
+            
+            .card-title {
+                padding: 12px 25px;
+                font-size: 1.2rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .option {
+                padding: 12px 20px;
+            }
+        }
+        
+        /* Answer display styling */
+        .answer-display {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            margin-top: 10px;
+            border-left: 5px solid var(--highlight-color);
+        }
+        
+        .insights-header {
+            color: var(--medium-blue);
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-family: 'HK Modular', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AI Personal Sustainability Analyzer</h1>
+            <div class="subtitle">Powered by Doppler Racing</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Intro Screen -->
+        <div id="intro-screen" class="intro-screen card">
+            <div class="card-title">Welcome to the Sustainability Analyzer</div>
+            <p>This AI-powered tool will evaluate your personal sustainability practices based on your lifestyle, habits, and detailed responses.</p>
+            <p>Answer a series of questions honestly to receive a personalized sustainability score and actionable recommendations to reduce your environmental impact.</p>
+            <p>Your responses will be analyzed to identify areas where you're excelling and where you have opportunities to improve.</p>
+            <div class="btn-container">
+                <button id="start-btn" class="btn">Start Assessment</button>
+            </div>
+        </div>
+        
+        <!-- Questions Container -->
+        <div id="question-container" class="question-container card">
+            <div class="card-title">Question <span id="current-question">1</span> of 15</div>
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar">0%</div>
+            </div>
+            <div class="btn-container">
+                <button id="next-btn" class="btn">Next Question</button>
+            </div>
+        </div>
+        
+        <!-- Text Question Container -->
+        <div id="text-question-container" class="text-question-container card">
+            <div class="card-title">Question <span id="text-current-question">1</span> of 15</div>
+            <div id="text-question" class="question"></div>
+            <textarea id="text-answer" class="text-input" placeholder="Type your answer here..."></textarea>
+            <div class="progress-container">
+                <div id="text-progress-bar" class="progress-bar">0%</div>
+            </div>
+            <div class="btn-container">
+                <button id="text-next-btn" class="btn">Next Question</button>
+            </div>
+        </div>
+        
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen card">
+            <div class="card-title">Analyzing Your Responses</div>
+            <div class="progress-container">
+                <div id="analysis-progress" class="progress-bar">0%</div>
+            </div>
+            <div class="loading-text">
+                Our AI is processing your answers and generating personalized recommendations
+                <span class="loading-dots"></span>
+            </div>
+        </div>
+        
+        <!-- Results Container -->
+        <div id="result-container" class="result-container">
+            <div class="card">
+                <div class="card-title">Your Sustainability Score</div>
+                <div id="score" class="score">0/100</div>
+                <p id="score-description"></p>
+            </div>
+            
+            <div class="laptop-layout">
+                <div class="laptop-column">
+                    <div class="card">
+                        <div class="card-title">Detailed Analysis</div>
+                        <div id="feedback-container">
+                            <!-- Feedback sections will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="laptop-column">
+                    <div class="card">
+                        <div class="card-title">Top Recommendations</div>
+                        <div id="recommendations-container">
+                            <!-- Recommendations will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Your Sustainability Insights</div>
+                <div id="text-insights-container">
+                    <!-- Text answer insights will be inserted here -->
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Sustainability Chatbot Assistant</div>
+                <p>Ask our AI assistant any questions about sustainability, eco-friendly practices, or how to implement the recommendations.</p>
+                
+                <div id="chatbot-container" class="chatbot-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot-message">
+                            Hello! I'm your sustainability assistant. Feel free to ask me any questions about how to improve your sustainability practices or get more information about your results.
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Type your question here...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <button id="chat-btn" class="btn">Start Chatting</button>
+                    <button id="restart-btn" class="btn">Start Over</button>
+                </div>
+            </div>
+            
+            <div class="card" style="text-align: center;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='60' viewBox='0 0 250 60'%3E%3Ctext x='0' y='40' font-family='Arial' font-size='28' font-weight='bold' fill='%23000033'%3EDOPPLER RACING%3C/text%3E%3C/svg%3E" class="doppler-logo" alt="Doppler Racing Logo">
+                <p>Thank you for using our AI Personal Sustainability Analyzer!</p>
+                <p>Consider sharing your results and taking action on our recommendations.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Questions data
+        const questions = [
+            {
+                question: "What is your primary mode of transportation?",
+                options: [
+                    { text: "Personal gasoline car (solo driver)", value: 1 },
+                    { text: "Carpool/rideshare", value: 3 },
+                    { text: "Public transportation", value: 4 },
+                    { text: "Electric vehicle", value: 4 },
+                    { text: "Bicycle or walking", value: 5 }
+                ],
+                category: "transportation",
+                type: "multiple-choice"
+            },
+            {
+                question: "How often do you eat animal products (meat, dairy, eggs)?",
+                options: [
+                    { text: "Multiple times every day", value: 1 },
+                    { text: "Once daily", value: 2 },
+                    { text: "A few times per week", value: 3 },
+                    { text: "Rarely (flexitarian/mostly plant-based)", value: 4 },
+                    { text: "Never (vegan/plant-based diet)", value: 5 }
+                ],
+                category: "diet",
+                type: "multiple-choice"
+            },
+            {
+                question: "Describe your current sustainability efforts and what motivates your interest in sustainable living.",
+                category: "lifestyle",
+                type: "text"
+            },
+            {
+                question: "How do you manage your food waste?",
+                options: [
+                    { text: "I don't track or manage food waste", value: 1 },
+                    { text: "I try to minimize waste but don't compost", value: 3 },
+                    { text: "I compost some food waste", value: 4 },
+                    { text: "I compost all food waste and plan meals to minimize waste", value: 5 }
+                ],
+                category: "waste",
+                type: "multiple-choice"
+            },
+            {
+                question: "What's your approach to water conservation?",
+                options: [
+                    { text: "I don't actively conserve water", value: 1 },
+                    { text: "I'm mindful but don't have specific habits", value: 2 },
+                    { text: "I take shorter showers and turn off taps when not in use", value: 3 },
+                    { text: "I use water-saving fixtures and appliances", value: 4 },
+                    { text: "I implement multiple water conservation methods and collect rainwater", value: 5 }
+                ],
+                category: "water",
+                type: "multiple-choice"
+            },
+            {
+                question: "What's the biggest sustainability challenge you face in your daily life, and how do you address it?",
+                category: "challenges",
+                type: "text"
+            },
+            {
+                question: "How do you heat and cool your home?",
+                options: [
+                    { text: "Fossil fuel heating/cooling with no efficiency measures", value: 1 },
+                    { text: "Standard HVAC system with minimal efficiency settings", value: 2 },
+                    { text: "Energy-efficient HVAC with programmable thermostat", value: 3 },
+                    { text: "Highly efficient system with smart temperature management", value: 4 },
+                    { text: "Renewable energy-powered heating/cooling with excellent insulation", value: 5 }
+                ],
+                category: "energy",
+                type: "multiple-choice"
+            },
+            {
+                question: "What's your shopping behavior for clothing and consumer goods?",
+                options: [
+                    { text: "I frequently buy new items without considering sustainability", value: 1 },
+                    { text: "I occasionally consider sustainable options but price is primary factor", value: 2 },
+                    { text: "I try to buy quality items that last longer", value: 3 },
+                    { text: "I regularly choose sustainable brands and second-hand items", value: 4 },
+                    { text: "I minimize purchases and prioritize sustainable, ethical products", value: 5 }
+                ],
+                category: "consumption",
+                type: "multiple-choice"
+            },
+            {
+                question: "How do you handle household waste and recycling?",
+                options: [
+                    { text: "I don't separate waste or recycle much", value: 1 },
+                    { text: "I recycle when convenient", value: 2 },
+                    { text: "I regularly recycle common materials (paper, plastic, glass)", value: 3 },
+                    { text: "I carefully sort all recyclables and minimize trash", value: 4 },
+                    { text: "I aim for zero-waste and properly dispose of all materials", value: 5 }
+                ],
+                category: "waste",
+                type: "multiple-choice"
+            },
+            {
+                question: "Describe a specific sustainability practice that you've successfully implemented in your life. What impact has it had?",
+                category: "success",
+                type: "text"
+            },
+            {
+                question: "What's your household energy source?",
+                options: [
+                    { text: "Standard grid electricity with no renewable component", value: 1 },
+                    { text: "Standard electricity with some energy-saving practices", value: 2 },
+                    { text: "Green energy plan through utility provider", value: 3 },
+                    { text: "Partial renewable energy (e.g., solar panels with grid backup)", value: 4 },
+                    { text: "Fully renewable energy-powered home", value: 5 }
+                ],
+                category: "energy",
+                type: "multiple-choice"
+            },
+            {
+                question: "How often do you fly for travel?",
+                options: [
+                    { text: "Multiple international flights per year", value: 1 },
+                    { text: "1-2 international or several domestic flights yearly", value: 2 },
+                    { text: "1-2 domestic flights per year", value: 3 },
+                    { text: "Rarely fly (less than once per year)", value: 4 },
+                    { text: "I avoid flying and choose alternative transportation", value: 5 }
+                ],
+                category: "transportation",
+                type: "multiple-choice"
+            },
+            {
+                question: "If you could implement one major change to make your lifestyle more sustainable, what would it be and why?",
+                category: "goals",
+                type: "text"
+            },
+            {
+                question: "What's your approach to electronic devices?",
+                options: [
+                    { text: "I frequently upgrade to the newest devices", value: 1 },
+                    { text: "I upgrade every 2-3 years regardless of device condition", value: 2 },
+                    { text: "I keep devices until they no longer function well", value: 3 },
+                    { text: "I repair devices when possible and consider refurbished options", value: 4 },
+                    { text: "I minimize electronics purchases and maximize device lifespan", value: 5 }
+                ],
+                category: "consumption",
+                type: "multiple-choice"
+            },
+            {
+                question: "What sustainability factors do you consider for your workplace or career?",
+                options: [
+                    { text: "Sustainability isn't a factor in my work decisions", value: 1 },
+                    { text: "I make small personal choices but don't influence workplace policy", value: 2 },
+                    { text: "I practice sustainability habits at work and encourage others", value: 3 },
+                    { text: "I actively participate in or lead sustainability initiatives at work", value: 4 },
+                    { text: "My career directly contributes to sustainability solutions", value: 5 }
+                ],
+                category: "lifestyle",
+                type: "multiple-choice"
+            }
+        ];
+        
+        // Recommendations based on categories
+        const recommendations = {
+            transportation: {
+                low: [
+                    "Try carpooling or using public transportation once a week to reduce emissions",
+                    "Consider combining multiple errands into a single trip to save fuel",
+                    "Research electric or hybrid vehicles for your next car purchase"
+                ],
+                medium: [
+                    "Increase your use of public transportation when feasible",
+                    "Consider biking or walking for short trips",
+                    "Look into car-sharing programs in your area"
+                ],
+                high: [
+                    "Consider eliminating one car if you have multiple vehicles",
+                    "Advocate for better public transportation or cycling infrastructure in your community",
+                    "Share your sustainable transportation knowledge with others"
+                ]
+            },
+            diet: {
+                low: [
+                    "Start with 'Meatless Monday' to reduce animal product consumption",
+                    "Try plant-based alternatives to your favorite animal products",
+                    "Reduce portion sizes of meat when you do consume it"
+                ],
+                medium: [
+                    "Expand plant-based meals to multiple days per week",
+                    "Prioritize locally-sourced and seasonal produce",
+                    "Learn to prepare protein-rich plant-based meals"
+                ],
+                high: [
+                    "Share plant-based recipes and tips with friends and family",
+                    "Consider growing some of your own food if possible",
+                    "Advocate for more plant-based options in your community spaces"
+                ]
+            },
+            waste: {
+                low: [
+                    "Start a simple home composting system for food scraps",
+                    "Use reusable shopping bags consistently",
+                    "Learn your local recycling rules and follow them carefully"
+                ],
+                medium: [
+                    "Aim to reduce packaging waste by purchasing items in bulk",
+                    "Try repairing items before replacing them",
+                    "Donate usable items rather than throwing them away"
+                ],
+                high: [
+                    "Set a goal to reduce your landfill waste by 50%",
+                    "Start a neighborhood composting or recycling initiative",
+                    "Contact companies about excessive packaging on products you buy"
+                ]
+            },
+            water: {
+                low: [
+                    "Install low-flow showerheads and faucet aerators",
+                    "Fix any leaks in your home promptly",
+                    "Turn off water while brushing teeth or washing dishes"
+                ],
+                medium: [
+                    "Collect and use rainwater for gardening",
+                    "Replace water-intensive plants with drought-resistant varieties",
+                    "Consider installing a dual-flush toilet or toilet water saver"
+                ],
+                high: [
+                    "Implement greywater systems for water recycling at home",
+                    "Advocate for water conservation measures in your community",
+                    "Share water-saving techniques with neighbors and friends"
+                ]
+            },
+            energy: {
+                low: [
+                    "Replace all light bulbs with LED alternatives",
+                    "Use power strips and turn them off when not in use",
+                    "Adjust your thermostat by 2-3 degrees to save energy"
+                ],
+                medium: [
+                    "Get a home energy audit to identify improvement areas",
+                    "Upgrade to more energy-efficient appliances",
+                    "Install a programmable or smart thermostat"
+                ],
+                high: [
+                    "Research renewable energy options for your home",
+                    "Improve home insulation to reduce heating/cooling needs",
+                    "Consider energy-efficient window replacements"
+                ]
+            },
+            consumption: {
+                low: [
+                    "Before purchasing, ask yourself if you really need the item",
+                    "Research brands with sustainable practices",
+                    "Try shopping secondhand for clothing and household items"
+                ],
+                medium: [
+                    "Embrace the 'quality over quantity' approach to purchases",
+                    "Establish a waiting period before making non-essential purchases",
+                    "Choose products with minimal or recyclable packaging"
+                ],
+                high: [
+                    "Start a local sharing economy in your neighborhood",
+                    "Advocate for sustainable business practices by contacting companies",
+                    "Teach repair skills to others to extend product lifecycles"
+                ]
+            },
+            lifestyle: {
+                low: [
+                    "Follow sustainability news and educate yourself on environmental issues",
+                    "Have conversations about sustainability with friends and family",
+                    "Join a local environmental group"
+                ],
+                medium: [
+                    "Volunteer for environmental causes in your community",
+                    "Advocate for sustainability initiatives at your workplace",
+                    "Start tracking your carbon footprint"
+                ],
+                high: [
+                    "Mentor others on sustainable living practices",
+                    "Engage with local government on environmental policies",
+                    "Consider how your career could better align with sustainability goals"
+                ]
+            }
+        };
+        
+        // Chatbot responses
+        const chatbotResponses = {
+            greetings: [
+                "Hello! How can I help with your sustainability journey today?",
+                "Hi there! I'm here to answer your sustainability questions.",
+                "Welcome! What would you like to know about sustainable living?"
+            ],
+            thanks: [
+                "You're welcome! Is there anything else you'd like to know?",
+                "Happy to help! Do you have any other questions?",
+                "Glad I could assist! Feel free to ask more questions."
+            ],
+            renewable_energy: [
+                "Renewable energy sources include solar, wind, hydro, geothermal, and biomass. They produce little to no greenhouse gas emissions and are replenished naturally.",
+                "Switching to renewable energy can significantly reduce your carbon footprint. Many utility companies now offer renewable energy options, or you could consider installing solar panels if feasible.",
+                "Even as a renter, you can support renewable energy through community solar programs or choosing utility companies that offer green energy plans."
+            ],
+            composting: [
+                "Composting is a great way to reduce food waste. You can start with a simple countertop bin for kitchen scraps, then transfer to an outdoor compost pile or bin.",
+                "For apartment dwellers, vermicomposting (using worms) is a compact solution, or look for community composting programs in your area.",
+                "Compostable items include fruit and vegetable scraps, coffee grounds, eggshells, yard trimmings, and non-glossy paper. Avoid meat, dairy, and oils to prevent odors and pests."
+            ],
+            plastic_reduction: [
+                "To reduce plastic use, start by replacing disposables with reusables: water bottles, shopping bags, food containers, and straws.",
+                "Buy in bulk when possible to reduce packaging waste, and choose products in glass, metal, or paper packaging instead of plastic.",
+                "For unavoidable plastics, ensure proper recycling by cleaning containers and checking local recycling guidelines for what's accepted."
+            ],
+            sustainable_diet: [
+                "A sustainable diet typically includes more plant-based foods, locally-sourced and seasonal products, and minimizes food waste.",
+                "Reducing meat consumption, particularly beef, can significantly lower your carbon footprint. Try introducing 1-2 plant-based days per week as a start.",
+                "Supporting local farmers through farmers markets or CSA (Community Supported Agriculture) programs reduces transportation emissions and supports the local economy."
+            ],
+            water_conservation: [
+                "Simple water-saving habits include taking shorter showers, fixing leaks promptly, and only running full loads in dishwashers and washing machines.",
+                "In the garden, use drought-resistant plants, mulch to retain moisture, and water during cooler parts of the day to minimize evaporation.",
+                "Installing low-flow fixtures like showerheads, faucet aerators, and dual-flush toilets can reduce indoor water use by 30-50%."
+            ],
+            sustainable_fashion: [
+                "Sustainable fashion starts with buying less and choosing quality items that last longer. Consider the '30 wears test' before purchasing.",
+                "Look for eco-friendly materials like organic cotton, linen, hemp, and recycled fabrics. Check for certifications like GOTS (Global Organic Textile Standard) or Oeko-Tex.",
+                "Second-hand shopping through thrift stores, consignment shops, or online platforms is one of the most sustainable ways to refresh your wardrobe."
+            ],
+            carbon_footprint: [
+                "Your carbon footprint is the total greenhouse gas emissions caused directly and indirectly by your activities. Major contributors include transportation, home energy use, and diet.",
+                "To calculate your carbon footprint, use online calculators from organizations like WWF, Carbon Footprint, or EPA. They typically assess your home energy, transportation, and consumption habits.",
+                "Beyond reducing personal emissions, consider carbon offset programs for unavoidable emissions like flights. Look for verified projects that meet Gold Standard or Verified Carbon Standard."
+            ],
+            zero_waste: [
+                "The zero waste philosophy follows the 5Rs: Refuse what you don't need, Reduce what you do need, Reuse items, Recycle what can't be reused, and Rot (compost) the rest.",
+                "Start your zero waste journey by observing your trash for a week to identify main sources, then tackle one area at a time with sustainable alternatives.",
+                "Zero waste doesn't mean producing absolutely no waste—it's about sending as little as possible to landfill. Don't get discouraged by setbacks; every small action helps."
+            ],
+            home_efficiency: [
+                "For better home energy efficiency, start with proper insulation and sealing air leaks around windows, doors, and ducts.",
+                "Consider a smart thermostat to optimize heating and cooling, and upgrade to Energy Star appliances when replacements are needed.",
+                "A professional home energy audit can identify specific opportunities for improvement in your home, often with significant return on investment."
+            ],
+            eco_friendly_products: [
+                "When choosing eco-friendly products, look beyond marketing claims ('greenwashing') to certifications like ENERGY STAR, WaterSense, USDA Organic, or FSC (Forest Stewardship Council).",
+                "Consider the entire lifecycle of products—how they're made, used, and disposed of. Sometimes the most eco-friendly choice is simply using what you already have until it wears out.",
+                "For cleaning products, plant-based ingredients and concentrated formulas reduce environmental impact. Or try making your own with simple ingredients like vinegar, baking soda, and essential oils."
+            ],
+            fallback: [
+                "That's an interesting question about sustainability. While I don't have specific information on that, I'd recommend researching through reputable environmental organizations like the EPA, WWF, or UN Environment Programme.",
+                "I'm not sure about that specific sustainability topic. Would you like me to cover something else like renewable energy, waste reduction, or sustainable diet instead?",
+                "Great question! Sustainability is a complex field that's constantly evolving. I'd suggest checking resources like Scientific American, National Geographic, or environmental science journals for the most current information on that topic."
+            ]
+        };
+        
+        // Elements
+        const introScreen = document.getElementById('intro-screen');
+        const questionContainer = document.getElementById('question-container');
+        const textQuestionContainer = document.getElementById('text-question-container');
+        const loadingScreen = document.getElementById('loading-screen');
+        const resultContainer = document.getElementById('result-container');
+        const startBtn = document.getElementById('start-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const textNextBtn = document.getElementById('text-next-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        const chatBtn = document.getElementById('chat-btn');
+        const questionElement = document.getElementById('question');
+        const textQuestionElement = document.getElementById('text-question');
+        const textAnswerElement = document.getElementById('text-answer');
+        const optionsElement = document.getElementById('options');
+        const currentQuestionElement = document.getElementById('current-question');
+        const textCurrentQuestionElement = document.getElementById('text-current-question');
+        const progressBar = document.getElementById('progress-bar');
+        const textProgressBar = document.getElementById('text-progress-bar');
+        const analysisProgress = document.getElementById('analysis-progress');
+        const scoreElement = document.getElementById('score');
+        const scoreDescriptionElement = document.getElementById('score-description');
+        const feedbackContainer = document.getElementById('feedback-container');
+        const recommendationsContainer = document.getElementById('recommendations-container');
+        const textInsightsContainer = document.getElementById('text-insights-container');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        
+        // Variables
+        let currentQuestionIndex = 0;
+        let selectedAnswers = [];
+        let textAnswers = {};
+        let categoryScores = {};
+        
+        // Event listeners
+        startBtn.addEventListener('click', startQuiz);
+        nextBtn.addEventListener('click', nextQuestion);
+        textNextBtn.addEventListener('click', nextTextQuestion);
+        restartBtn.addEventListener('click', restartQuiz);
+        chatBtn.addEventListener('click', startChat);
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Functions
+        function startQuiz() {
+            introScreen.style.display = 'none';
+            loadQuestion(0);
+        }
+        
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const question = questions[index];
+            
+            // Update question number and progress bar
+            const progress = ((index) / questions.length) * 100;
+            
+            // Determine if it's a multiple choice or text question
+            if (question.type === 'multiple-choice') {
+                textQuestionContainer.style.display = 'none';
+                questionContainer.style.display = 'block';
+                
+                currentQuestionElement.textContent = index + 1;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = Math.round(progress) + '%';
+                
+                // Set question text
+                questionElement.textContent = question.question;
+                
+                // Clear previous options
+                optionsElement.innerHTML = '';
+                
+                // Add options
+                question.options.forEach((option, i) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.classList.add('option');
+                    optionDiv.textContent = option.text;
+                    optionDiv.dataset.value = option.value;
+                    optionDiv.dataset.index = i;
+                    optionDiv.addEventListener('click', selectOption);
+                    optionsElement.appendChild(optionDiv);
+                });
+                
+                // Check if this question already has an answer
+                if (selectedAnswers[index] !== undefined) {
+                    const selectedOption = optionsElement.children[selectedAnswers[index].optionIndex];
+                    if (selectedOption) {
+                        selectedOption.classList.add('selected');
+                    }
+                }
+                
+                // Disable/enable next button
+                nextBtn.disabled = selectedAnswers[index] === undefined;
+            } else {
+                // Text question
+                questionContainer.style.display = 'none';
+                textQuestionContainer.style.display = 'block';
+                
+                textCurrentQuestionElement.textContent = index + 1;
+                textProgressBar.style.width = progress + '%';
+                textProgressBar.textContent = Math.round(progress) + '%';
+                
+                // Set question text
+                textQuestionElement.textContent = question.question;
+                
+                // Check if this question already has an answer
+                if (textAnswers[index] !== undefined) {
+                    textAnswerElement.value = textAnswers[index].answer;
+                } else {
+                    textAnswerElement.value = '';
+                }
+                
+                // Focus on the text area
+                setTimeout(() => {
+                    textAnswerElement.focus();
+                }, 100);
+            }
+        }
+        
+        function selectOption(e) {
+            // Remove selected class from all options
+            const options = optionsElement.children;
+            for (let option of options) {
+                option.classList.remove('selected');
+            }
+            
+            // Add selected class to clicked option
+            e.target.classList.add('selected');
+            
+            // Save the answer
+            const value = parseInt(e.target.dataset.value);
+            const optionIndex = parseInt(e.target.dataset.index);
+            const category = questions[currentQuestionIndex].category;
+            
+            selectedAnswers[currentQuestionIndex] = {
+                value: value,
+                optionIndex: optionIndex,
+                category: category
+            };
+            
+            // Enable next button
+            nextBtn.disabled = false;
+        }
+        
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                showLoadingScreen();
+            }
+        }
+        
+        function nextTextQuestion() {
+            const answer = textAnswerElement.value.trim();
+            
+            if (answer.length < 10) {
+                alert("Please provide a more detailed answer (at least 10 characters).");
+                return;
+            }
+            
+            // Save the text answer
+            const category = questions[currentQuestionIndex].category;
+            
+            textAnswers[currentQuestionIndex] = {
+                answer: answer,
+                category: category
+            };
+            
+            if (currentQuestionIndex < questions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                showLoadingScreen();
+            }
+        }
+        
+        function showLoadingScreen() {
+            questionContainer.style.display = 'none';
+            textQuestionContainer.style.display = 'none';
+            loadingScreen.style.display = 'block';
+            
+            // Simulate AI processing with progress bar
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 4;
+                analysisProgress.style.width = progress + '%';
+                analysisProgress.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(showResults, 800); // Small delay for better UX
+                }
+            }, 200);
+        }
+        
+        function calculateResults() {
+            // Calculate category scores
+            categoryScores = {};
+            
+            // Initialize categories
+            const categories = ['transportation', 'diet', 'waste', 'water', 'energy', 'consumption', 'lifestyle', 'challenges', 'success', 'goals'];
+            categories.forEach(category => {
+                categoryScores[category] = {
+                    total: 0,
+                    count: 0,
+                    average: 0
+                };
+            });
+            
+            // Sum up scores by category for multiple choice answers
+            for (let i = 0; i < questions.length; i++) {
+                if (questions[i].type === 'multiple-choice' && selectedAnswers[i]) {
+                    const answer = selectedAnswers[i];
+                    categoryScores[answer.category].total += answer.value;
+                    categoryScores[answer.category].count += 1;
+                }
+            }
+            
+            // Calculate averages
+            categories.forEach(category => {
+                if (categoryScores[category].count > 0) {
+                    categoryScores[category].average = 
+                        categoryScores[category].total / categoryScores[category].count;
+                }
+            });
+            
+            // Calculate overall score (0-100)
+            let totalScore = 0;
+            let totalQuestions = 0;
+            
+            // Only count multiple choice questions for the score
+            categories.forEach(category => {
+                totalScore += categoryScores[category].total;
+                totalQuestions += categoryScores[category].count;
+            });
+            
+            const overallScore = Math.round((totalScore / totalQuestions) * 20); // Scale to 0-100
+            return overallScore;
+        }
+        
+        function getScoreLevel(score) {
+            if (score < 40) return "low";
+            if (score < 70) return "medium";
+            return "high";
+        }
+        
+        function getCategoryLevel(score) {
+            if (score < 2.5) return "low";
+            if (score < 4) return "medium";
+            return "high";
+        }
+        
+        function getScoreDescription(score) {
+            if (score < 40) {
+                return "You're in the early stages of your sustainability journey. There are many opportunities to improve your environmental impact with some simple changes to your daily habits.";
+            } else if (score < 70) {
+                return "You're making good progress on sustainability! You've incorporated some eco-friendly practices into your lifestyle, and with a few more intentional changes, you can significantly reduce your environmental footprint.";
+            } else {
+                return "Excellent! You're living a highly sustainable lifestyle. Your daily choices are making a positive impact on the planet, and you can focus on inspiring others and advocating for wider systemic changes.";
+            }
+        }
+        
+        function analyzeTextAnswer(answer, category) {
+            // Basic sentiment analysis
+            const positiveWords = ['success', 'positive', 'improve', 'reduce', 'save', 'efficient', 'good', 'great', 'excellent', 'effective', 'recycle', 'compost', 'reuse', 'sustainable', 'renewable', 'local', 'organic'];
+            const negativeWords = ['difficult', 'challenge', 'hard', 'problem', 'issue', 'expensive', 'inconvenient', 'waste', 'pollute', 'contaminate', 'disposable'];
+            
+            let posCount = 0;
+            let negCount = 0;
+            
+            const words = answer.toLowerCase().split(/\W+/);
+            
+            words.forEach(word => {
+                if (positiveWords.includes(word)) posCount++;
+                if (negativeWords.includes(word)) negCount++;
+            });
+            
+            let sentiment = 'neutral';
+            if (posCount > negCount * 1.5) sentiment = 'positive';
+            else if (negCount > posCount * 1.5) sentiment = 'negative';
+            
+            // Determine engagement level based on answer length
+            let engagement = 'low';
+            if (answer.length > 100) engagement = 'medium';
+            if (answer.length > 200) engagement = 'high';
+            
+            // Look for specific themes
+            const themes = [];
+            if (answer.toLowerCase().match(/cost|money|expensive|afford|budget|price/g)) themes.push('cost-conscious');
+            if (answer.toLowerCase().match(/family|kids|children|spouse|partner|roommate/g)) themes.push('family-oriented');
+            if (answer.toLowerCase().match(/community|neighbor|local|city|town|together/g)) themes.push('community-focused');
+            if (answer.toLowerCase().match(/health|well-being|wellness|healthy|nutrition/g)) themes.push('health-conscious');
+            if (answer.toLowerCase().match(/future|generation|long-term|children|legacy/g)) themes.push('future-oriented');
+            if (answer.toLowerCase().match(/technology|innovation|new|solution|system/g)) themes.push('tech-oriented');
+            
+            return {
+                sentiment,
+                engagement,
+                themes,
+                length: answer.length,
+                category
+            };
+        }
+        
+        function generateTextInsight(category, analysis) {
+            let insight = '';
+            
+            switch (category) {
+                case 'lifestyle':
+                    if (analysis.engagement === 'high') {
+                        insight = "You show a deep commitment to sustainability in your daily life. ";
+                    } else if (analysis.engagement === 'medium') {
+                        insight = "You've incorporated sustainability into your lifestyle in meaningful ways. ";
+                    } else {
+                        insight = "You're beginning to integrate sustainability concepts into your lifestyle. ";
+                    }
+                    
+                    if (analysis.sentiment === 'positive') {
+                        insight += "Your positive attitude toward sustainable living will help you continue making progress.";
+                    } else if (analysis.sentiment === 'negative') {
+                        insight += "You recognize the challenges in sustainable living, which shows realistic awareness.";
+                    } else {
+                        insight += "Your balanced perspective on sustainable living helps you make practical choices.";
+                    }
+                    break;
+                    
+                case 'challenges':
+                    insight = "You identify " + (analysis.sentiment === 'negative' ? "significant" : "manageable") + " challenges in your sustainability journey. ";
+                    
+                    if (analysis.themes.includes('cost-conscious')) {
+                        insight += "Financial considerations are important in your decision-making process. Consider calculating long-term savings of sustainable investments.";
+                    } else if (analysis.themes.includes('family-oriented')) {
+                        insight += "Balancing family needs with sustainability goals is a priority for you. Involving everyone in green decisions can create lasting change.";
+                    } else if (analysis.themes.includes('community-focused')) {
+                        insight += "You see community factors affecting your sustainability efforts. Building local networks can help overcome shared challenges.";
+                    } else {
+                        insight += "With continued effort, you can develop strategies to overcome these obstacles.";
+                    }
+                    break;
+                    
+                case 'success':
+                    if (analysis.engagement === 'high') {
+                        insight = "You've implemented impressive sustainability practices with notable results. ";
+                    } else if (analysis.engagement === 'medium') {
+                        insight = "You've had success with practical sustainability measures. ";
+                    } else {
+                        insight = "You're making initial progress with sustainability practices. ";
+                    }
+                    
+                    if (analysis.sentiment === 'positive') {
+                        insight += "Your positive experiences will help motivate continued improvement.";
+                    } else {
+                        insight += "Building on these successes can create momentum for further changes.";
+                    }
+                    break;
+                    
+                case 'goals':
+                    if (analysis.themes.includes('tech-oriented')) {
+                        insight = "You're interested in technological solutions to sustainability challenges. Staying informed about green innovations could help you achieve your goals.";
+                    } else if (analysis.themes.includes('future-oriented')) {
+                        insight = "You have a long-term perspective on sustainability, which helps with making meaningful changes. Your future-focused approach will serve you well.";
+                    } else if (analysis.themes.includes('health-conscious')) {
+                        insight = "You connect environmental sustainability with personal wellbeing, which creates powerful motivation for change. This holistic perspective is valuable.";
+                    } else {
+                        insight = "Your sustainability goals reflect thoughtful consideration of what changes would make the most impact. Breaking these down into smaller steps can help with implementation.";
+                    }
+                    break;
+                    
+                default:
+                    insight = "Your thoughts on " + category + " show " + analysis.engagement + " engagement with sustainability concepts. ";
+                    
+                    if (analysis.themes.length > 0) {
+                        insight += "You consider factors like " + analysis.themes.join(", ") + " in your approach.";
+                    } else {
+                        insight += "Continuing to explore this area could yield new sustainable practices for your lifestyle.";
+                    }
+            }
+            
+            return insight;
+        }
+        
+        function showResults() {
+            loadingScreen.style.display = 'none';
+            resultContainer.style.display = 'block';
+            
+            // Calculate and display score
+            const overallScore = calculateResults();
+            scoreElement.textContent = overallScore + "/100";
+            scoreDescriptionElement.textContent = getScoreDescription(overallScore);
+            
+            // Generate feedback by category
+            feedbackContainer.innerHTML = '';
+            const categories = Object.keys(categoryScores).filter(cat => categoryScores[cat].count > 0);
+            
+            categories.forEach(category => {
+                const categoryScore = categoryScores[category].average;
+                const level = getCategoryLevel(categoryScore);
+                
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.classList.add('feedback-category');
+                
+                // Format category name for display
+                const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+                
+                let feedbackMessage = '';
+                if (level === "low") {
+                    feedbackMessage = `This is an area with significant room for improvement. Small changes can make a big difference.`;
+                } else if (level === "medium") {
+                    feedbackMessage = `You're making good choices in this area. Consider taking your efforts to the next level.`;
+                } else {
+                    feedbackMessage = `Excellent work! You're a sustainability champion in this category.`;
+                }
+                
+                const scoreOutOf5 = categoryScore.toFixed(1);
+                
+                feedbackDiv.innerHTML = `
+                    <h3>${categoryDisplayName}: ${scoreOutOf5}/5</h3>
+                    <p>${feedbackMessage}</p>
+                `;
+                
+                feedbackContainer.appendChild(feedbackDiv);
+            });
+            
+            // Generate top recommendations
+            recommendationsContainer.innerHTML = '';
+            
+            // Get the lowest scoring categories first (only for multiple choice categories)
+            const mcCategories = ['transportation', 'diet', 'waste', 'water', 'energy', 'consumption', 'lifestyle'];
+            const sortedCategories = mcCategories
+                .filter(cat => categoryScores[cat].count > 0)
+                .sort((a, b) => categoryScores[a].average - categoryScores[b].average);
+            
+            // Get 3 recommendations for improvement from lowest categories
+            const improvementRecommendations = [];
+            sortedCategories.slice(0, 2).forEach(category => {
+                const level = getCategoryLevel(categoryScores[category].average);
+                const categoryRecs = recommendations[category][level];
+                if (categoryRecs && categoryRecs.length) {
+                    // Get one random recommendation from this category
+                    const randomIndex = Math.floor(Math.random() * categoryRecs.length);
+                    improvementRecommendations.push({
+                        text: categoryRecs[randomIndex],
+                        category: category,
+                        type: 'improvement'
+                    });
+                }
+            });
+            
+            // Get 2 recommendations for highest categories (things they're doing well)
+            const complimentRecommendations = [];
+            sortedCategories.slice(-2).reverse().forEach(category => {
+                if (categoryScores[category].average >= 3.5) {
+                    const displayName = category.charAt(0).toUpperCase() + category.slice(1);
+                    complimentRecommendations.push({
+                        text: `You excel in ${displayName}. Keep up your excellent practices like ${getExampleFromAnswers(category)}.`,
+                        category: category,
+                        type: 'compliment'
+                    });
+                }
+            });
+            
+            // Add all recommendations to the container
+            improvementRecommendations.forEach(rec => {
+                const recDiv = document.createElement('div');
+                recDiv.classList.add('recommendation', 'improvement');
+                recDiv.innerHTML = `<strong>Improvement:</strong> ${rec.text}`;
+                recommendationsContainer.appendChild(recDiv);
+            });
+            
+            complimentRecommendations.forEach(rec => {
+                const recDiv = document.createElement('div');
+                recDiv.classList.add('recommendation', 'compliment');
+                recDiv.innerHTML = `<strong>Strength:</strong> ${rec.text}`;
+                recommendationsContainer.appendChild(recDiv);
+            });
+            
+            // Add one general recommendation based on overall score
+            const overallLevel = getScoreLevel(overallScore);
+            const generalRec = document.createElement('div');
+            generalRec.classList.add('recommendation');
+            
+            if (overallLevel === "low") {
+                generalRec.innerHTML = `<strong>Overall:</strong> Consider tracking your progress with a sustainability journal or app to stay motivated as you implement new habits.`;
+            } else if (overallLevel === "medium") {
+                generalRec.innerHTML = `<strong>Overall:</strong> You're making great progress! Consider joining a community group focused on sustainability to share ideas and stay inspired.`;
+            } else {
+                generalRec.innerHTML = `<strong>Overall:</strong> As a sustainability leader, consider mentoring others or advocating for policy changes that support environmental protection.`;
+            }
+            
+            recommendationsContainer.appendChild(generalRec);
+            
+            // Process text answers and generate insights
+            textInsightsContainer.innerHTML = '';
+            
+            // Get all text answers
+            const textAnswerKeys = Object.keys(textAnswers);
+            
+            if (textAnswerKeys.length > 0) {
+                textAnswerKeys.forEach(index => {
+                    const answer = textAnswers[index];
+                    const question = questions[index].question;
+                    const category = answer.category;
+                    
+                    // Analyze text
+                    const analysis = analyzeTextAnswer(answer.answer, category);
+                    const insight = generateTextInsight(category, analysis);
+                    
+                    // Create insight element
+                    const insightDiv = document.createElement('div');
+                    
+                    const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+                    
+                    insightDiv.innerHTML = `
+                        <h3 class="insights-header">${categoryDisplayName} Insights</h3>
+                        <div class="question">${question}</div>
+                        <div class="answer-display">${answer.answer}</div>
+                        <p>${insight}</p>
+                    `;
+                    
+                    textInsightsContainer.appendChild(insightDiv);
+                });
+            } else {
+                textInsightsContainer.innerHTML = '<p>No written responses provided.</p>';
+            }
+        }
+        
+        function getExampleFromAnswers(category) {
+            // Find a high-scoring answer in this category to use as an example
+            const highAnswers = [];
+            for (let i = 0; i < questions.length; i++) {
+                if (questions[i].type === 'multiple-choice' && 
+                    selectedAnswers[i] && 
+                    selectedAnswers[i].category === category && 
+                    selectedAnswers[i].value >= 4) {
+                    highAnswers.push({
+                        questionIndex: i,
+                        optionIndex: selectedAnswers[i].optionIndex
+                    });
+                }
+            }
+            
+            if (highAnswers.length > 0) {
+                const randomAnswer = highAnswers[Math.floor(Math.random() * highAnswers.length)];
+                const optionText = questions[randomAnswer.questionIndex].options[randomAnswer.optionIndex].text;
+                return optionText.toLowerCase();
+            }
+            
+            return "your sustainable choices";
+        }
+        
+        function restartQuiz() {
+            // Reset all variables
+            currentQuestionIndex = 0;
+            selectedAnswers = [];
+            textAnswers = {};
+            categoryScores = {};
+            
+            // Show intro screen
+            resultContainer.style.display = 'none';
+            chatbotContainer.style.display = 'none';
+            chatBtn.style.display = 'block';
+            introScreen.style.display = 'block';
+        }
+        
+        function startChat() {
+            chatbotContainer.style.display = 'block';
+            chatBtn.style.display = 'none';
+            chatInput.focus();
+        }
+        
+        function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') return;
+            
+            // Add user message to chat
+            addMessage(userMessage, 'user');
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Get bot response
+            setTimeout(() => {
+                const response = getBotResponse(userMessage);
+                addMessage(response, 'bot');
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 750);
+        }
+        
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender + '-message');
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function getBotResponse(message) {
+            message = message.toLowerCase();
+            
+            // Check for greetings
+            if (message.match(/hi|hello|hey|howdy/i)) {
+                return getRandomResponse(chatbotResponses.greetings);
+            }
+            
+            // Check for thanks
+            if (message.match(/thanks|thank you|appreciate/i)) {
+                return getRandomResponse(chatbotResponses.thanks);
+            }
+            
+            // Check for specific topics
+            if (message.match(/renewable|solar|wind|energy source/i)) {
+                return getRandomResponse(chatbotResponses.renewable_energy);
+            }
+            
+            if (message.match(/compost|food waste|organic waste/i)) {
+                return getRandomResponse(chatbotResponses.composting);
+            }
+            
+            if (message.match(/plastic|single use|disposable/i)) {
+                return getRandomResponse(chatbotResponses.plastic_reduction);
+            }
+            
+            if (message.match(/diet|food|eat|vegan|vegetarian|meat/i)) {
+                return getRandomResponse(chatbotResponses.sustainable_diet);
+            }
+            
+            if (message.match(/water|shower|irrigation|drought/i)) {
+                return getRandomResponse(chatbotResponses.water_conservation);
+            }
+            
+            if (message.match(/clothes|fashion|textile|fabric|wear/i)) {
+                return getRandomResponse(chatbotResponses.sustainable_fashion);
+            }
+            
+            if (message.match(/carbon|footprint|emissions|greenhouse gas/i)) {
+                return getRandomResponse(chatbotResponses.carbon_footprint);
+            }
+            
+            if (message.match(/zero waste|trash|garbage|landfill/i)) {
+                return getRandomResponse(chatbotResponses.zero_waste);
+            }
+            
+            if (message.match(/home|house|appliance|efficient|insulation/i)) {
+                return getRandomResponse(chatbotResponses.home_efficiency);
+            }
+            
+            if (message.match(/product|eco.?friendly|green|buy|purchase/i)) {
+                return getRandomResponse(chatbotResponses.eco_friendly_products);
+            }
+            
+            // Fallback response
+            return getRandomResponse(chatbotResponses.fallback);
+        }
+        
+        function getRandomResponse(responses) {
+            const index = Math.floor(Math.random() * responses.length);
+            return responses[index];
+        }
+    </script>
+
+
+</body></html>
